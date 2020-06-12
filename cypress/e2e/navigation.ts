@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /// <reference types="../support/index" />
 /// <reference types="cypress" />
 /// <reference types="@types/testing-library__cypress" />
@@ -27,13 +28,13 @@ describe('navigation', () => {
     cy.get('nav').within(() => {
       cy.findByText(/about/i).click({ force: true }).waitForRouteChange()
     })
-    cy.findByText(/Hi. I'm LekoArts!/i).assertRoute('/about')
+    cy.findByText(/Hi. I'm NIXLASH!/i).assertRoute('/about')
   })
   it('link to home works', () => {
     cy.get('nav').within(() => {
       cy.findByText(/about/i).click({ force: true }).waitForRouteChange()
     })
-    cy.findByText(/Hi. I'm LekoArts!/i).assertRoute('/about')
+    cy.findByText(/Hi. I'm NIXLASH!/i).assertRoute('/about')
     cy.findByLabelText(/LekoArts, Back to home/i)
       .click({ force: true })
       .waitForRouteChange()

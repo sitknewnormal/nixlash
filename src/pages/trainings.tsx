@@ -11,7 +11,7 @@ import { ChildImageSharp } from '../types'
 
 type PageProps = {
   data: {
-    projects: {
+    trainings: {
       nodes: {
         title: string
         slug: string
@@ -32,7 +32,7 @@ const Area = styled(animated.div)`
   }
 `
 
-const Projects: React.FunctionComponent<PageProps> = ({ data: { projects } }) => {
+const Trainings: React.FunctionComponent<PageProps> = ({ data: { trainings } }) => {
   const pageAnimation = useSpring({
     config: config.slow,
     from: { opacity: 0 },
@@ -43,10 +43,10 @@ const Projects: React.FunctionComponent<PageProps> = ({ data: { projects } }) =>
     <Layout color="#000">
       <SEO title="Services | NIXLASH" />
       <Area style={pageAnimation}>
-        {projects.nodes.map((project) => (
-          <GridItem key={project.slug} to={project.slug} aria-label={`View project "${project.title}"`}>
-            <Img fluid={project.cover.childImageSharp.fluid} />
-            <span>{project.title}</span>
+        {trainings.nodes.map((training) => (
+          <GridItem key={training.slug} to={training.slug} aria-label={`View training "${training.title}"`}>
+            <Img fluid={training.cover.childImageSharp.fluid} />
+            <span>{training.title}</span>
           </GridItem>
         ))}
       </Area>
@@ -54,11 +54,11 @@ const Projects: React.FunctionComponent<PageProps> = ({ data: { projects } }) =>
   )
 }
 
-export default Projects
+export default Trainings
 
 export const query = graphql`
-  query Projects {
-    projects: allProjectsYaml {
+  query Trainings {
+    trainings: allTrainingsYaml {
       nodes {
         title
         slug

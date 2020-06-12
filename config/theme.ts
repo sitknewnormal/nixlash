@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 interface ThemeShape {
   breakpoints: string[]
   fontSizes: string[]
@@ -45,7 +46,7 @@ const theme: ThemeShape = {
   },
   sidebarWidth: {
     big: '375px',
-    normal: '320px',
+    normal: '325px',
   },
 }
 

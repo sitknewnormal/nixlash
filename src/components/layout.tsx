@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { graphql, Link, useStaticQuery } from 'gatsby'
@@ -252,8 +253,11 @@ const Layout = ({ children, color }: LayoutProps) => {
           <Main>{children}</Main>
           <Footer color={color}>
             <Box p={[6, 6, 8]} fontSize={0}>
-              Starter by <a href="https://www.lekoarts.de/en">LekoArts</a>.<br />
-              <a href="https://github.com/LekoArts/gatsby-starter-portfolio-jodie">Source</a>.
+              <b>Location:</b> Toronto-Oakville, ON
+              <br></br>
+              <b>Phone:</b> (647) 534-9379
+              <br></br>
+              <b>Email:</b> contact@nixlash.com
             </Box>
           </Footer>
         </Wrapper>

@@ -47,7 +47,7 @@ const PButton = styled(Button)<{ color: string }>`
 
 type PageProps = {
   data: {
-    project: {
+    training: {
       title_detail: string
       color: string
       category: string
@@ -87,7 +87,7 @@ type PageProps = {
   }
 }
 
-const Project: React.FunctionComponent<PageProps> = ({ data: { project, images } }) => {
+const Training: React.FunctionComponent<PageProps> = ({ data: { training, images } }) => {
   const categoryAnimation = useSpring({
     config: config.slow,
     from: { opacity: 0, transform: 'translate3d(0, -30px, 0)' },
@@ -99,29 +99,29 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
   const imagesAnimation = useSpring({ config: config.slow, delay: 800, from: { opacity: 0 }, to: { opacity: 1 } })
 
   return (
-    <Layout color={project.color}>
+    <Layout color={training.color}>
       <SEO
-        pathname={project.slug}
-        title={`${project.title_detail} | NIXLASH`}
-        desc={project.desc}
-        node={project.parent}
-        banner={project.cover.childImageSharp.resize.src}
+        pathname={training.slug}
+        title={`${training.title_detail} | NIXLASH`}
+        desc={training.desc}
+        node={training.parent}
+        banner={training.cover.childImageSharp.resize.src}
         individual
       />
       <PBox py={10} px={[6, 6, 8, 10]}>
-        <Category style={categoryAnimation}>{project.category}</Category>
-        <animated.h1 style={titleAnimation}>{project.title_detail}</animated.h1>
+        <Category style={categoryAnimation}>{training.category}</Category>
+        <animated.h1 style={titleAnimation}>{training.title_detail}</animated.h1>
         <Description style={descAnimation}>
-          <div dangerouslySetInnerHTML={{ __html: project.desc }} />
+          <div dangerouslySetInnerHTML={{ __html: training.desc }} />
         </Description>
         <Description style={descAnimation}>
-          <div style={{ fontStyle: 'italic' }} dangerouslySetInnerHTML={{ __html: project.price_line1 }} />
+          <div style={{ fontStyle: 'italic' }} dangerouslySetInnerHTML={{ __html: training.price_line1 }} />
         </Description>
         <Description style={descAnimation}>
-          <div style={{ fontStyle: 'italic' }} dangerouslySetInnerHTML={{ __html: project.price_line2 }} />
+          <div style={{ fontStyle: 'italic' }} dangerouslySetInnerHTML={{ __html: training.price_line2 }} />
         </Description>
       </PBox>
-      <Content bg={project.color} py={10}>
+      <Content bg={training.color} py={10}>
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
           {images.nodes.map((image) => (
             <Img alt={image.name} key={image.childImageSharp.fluid.src} fluid={image.childImageSharp.fluid} />
@@ -129,20 +129,20 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
         </PBox>
       </Content>
       <PBox style={{ textAlign: 'center' }} py={10} px={[6, 6, 8, 10]}>
-        <h2>Want to make an appointment?</h2>
-        <PButton color={project.color} py={4} px={8}>
-          Click here
+        <h2>Find out more!</h2>
+        <PButton color={training.color} py={4} px={8}>
+          Contact us today
         </PButton>
       </PBox>
     </Layout>
   )
 }
 
-export default Project
+export default Training
 
 export const query = graphql`
-  query ProjectTemplate($slug: String!, $images: String!) {
-    project: projectsYaml(slug: { eq: $slug }) {
+  query TrainingTemplate($slug: String!, $images: String!) {
+    training: trainingsYaml(slug: { eq: $slug }) {
       title_detail
       color
       category

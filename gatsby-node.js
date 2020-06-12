@@ -11,11 +11,25 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const projectTemplate = require.resolve('./src/templates/project.tsx')
+  const trainingTemplate = require.resolve('./src/templates/training.tsx')
 
   const result = await wrapper(
     graphql(`
       {
         projects: allProjectsYaml {
+          nodes {
+            slug
+            images
+          }
+        }
+      }
+    `)
+  )
+
+  const resultTraining = await wrapper(
+    graphql(`
+      {
+        trainings: allTrainingsYaml {
           nodes {
             slug
             images
@@ -35,4 +49,16 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  resultTraining.data.trainings.nodes.forEach(node => {
+    createPage({
+      path: node.slug,
+      component: trainingTemplate,
+      context: {
+        slug: node.slug,
+        images: `/${node.images}/`,
+      },
+    })
+  })
+  
 }
