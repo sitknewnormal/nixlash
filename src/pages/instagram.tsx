@@ -142,7 +142,7 @@ const Instagram: React.FunctionComponent<Props> = ({
           // Grab everything before the first hashtag (because I write my captions like that)
           const post = instagram[index]
           const title = post.caption ? post.caption.split('#')[0] : ''
-          const date = new Date(post.timestamp * 1000).toLocaleDateString('de-DE')
+          const date = new Date(post.timestamp * 1000).toLocaleDateString('en-US')
 
           return (
             <Item style={style} href={`https://www.instagram.com/p/${post.id}/`} key={post.id}>

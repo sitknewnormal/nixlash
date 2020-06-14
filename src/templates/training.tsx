@@ -40,11 +40,6 @@ const Description = styled(animated.div)`
   line-height: 1.58;
 `
 
-const PButton = styled(Button)<{ color: string }>`
-  background: ${(props) => (props.color === 'white' ? 'black' : props.color)};
-  color: ${(props) => readableColor(props.color === 'white' ? 'black' : props.color)};
-`
-
 type PageProps = {
   data: {
     training: {
