@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
@@ -105,10 +104,10 @@ const Index: React.FunctionComponent<PageProps> = ({ data: { firstProject, three
   })
 
   return (
-    <Layout>
+    <Layout color="black">
       <SEO />
       <Area style={pageAnimation}>
-        <FirstProject to={firstProject.slug} aria-label={`View project "${firstProject.title}"`}>
+        <FirstProject to={firstProject.slug} aria-label={`View services "${firstProject.title}"`}>
           <Img fluid={firstProject.cover.childImageSharp.fluid} />
           <span>{firstProject.title}</span>
         </FirstProject>
@@ -118,7 +117,7 @@ const Index: React.FunctionComponent<PageProps> = ({ data: { firstProject, three
         </AboutUs>
         <ThreeProjects>
           {threeProjects.nodes.map((project) => (
-            <GridItem to={project.slug} key={project.slug} aria-label={`View project "${project.title}"`}>
+            <GridItem to={project.slug} key={project.slug} aria-label={`View services "${project.title}"`}>
               <Img fluid={project.cover.childImageSharp.fluid} />
               <span>{project.title}</span>
             </GridItem>

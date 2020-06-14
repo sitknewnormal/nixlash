@@ -1,9 +1,17 @@
-/* eslint-disable prettier/prettier */
 import React from 'react'
 import { config, useSpring } from 'react-spring'
+import styled from 'styled-components'
 import Layout from '../components/layout'
 import { AnimatedBox } from '../elements'
 import SEO from '../components/SEO'
+import ContactUs from '../components/contactus'
+
+const colour = '#82726b'
+
+const PBox = styled(AnimatedBox)`
+  max-width: 1400px;
+  margin: 0 auto;
+`
 
 const FAQ = () => {
   const pageAnimation = useSpring({
@@ -13,8 +21,8 @@ const FAQ = () => {
   })
 
   return (
-    <Layout>
-      <SEO title="FAQ | NIXLASH" desc="Hi. I'm NIXLASH! You can visit my website for detailed services." />
+    <Layout color={colour}>
+      <SEO title="FAQ | NIXLASH" desc="Hi. I'm NIXLASH! You can visit my website for detailed eyelash services and trainnnings." />
       <AnimatedBox style={pageAnimation} py={[6, 6, 6, 8]} px={[6, 6, 8, 6, 8, 13]}>
         <h1>Frequently Asked Questions</h1>
         <p>
@@ -24,7 +32,7 @@ const FAQ = () => {
           <em>What are eyelash extensions?</em>
         </h5>
         <p>
-          Eyelash extensions are made to look identical to human lashes. Using a state-of the ?art application technique, one lash at a time is applied onto the existing lash. The eyelash extension simply transforms your natural lashes into lush, beautiful, longer lashes.  Eyelash extensions are for professional application only, the entire lash procedure is very comfortable and relaxing. They are weightless and you feel nothing on your lashes. They are water-proof; you can shower, exercise and even sleep with them on.  With proper care and depending on your lash cycle, these lash extensions can last up to 2 months or longer.
+          Eyelash extensions are made to look identical to human lashes. Using a state-of-the-art application technique, one lash at a time is applied onto the existing lash. The eyelash extension simply transforms your natural lashes into lush, beautiful, longer lashes.  Eyelash extensions are for professional application only, the entire lash procedure is very comfortable and relaxing. They are weightless and you feel nothing on your lashes. They are water-proof; you can shower, exercise and even sleep with them on.  With proper care and depending on your lash cycle, these lash extensions can last up to 2 months or longer.
         </p>
         <h5>
           <em>What is the difference between eyelash extension and traditional false lashes?</em>
@@ -89,8 +97,8 @@ const FAQ = () => {
           </p>
           <ul>
             <li>have adhesive allergies.</li>
-            <li>had Lasik has to wait at least 4 weeks and seek their doctor?s approval prior to getting extensions.</li>
-            <li>had an eyelift surgery must wait 4 to 6 months after the operation and also gain their doctor?s approval.</li>
+            <li>had Lasik has to wait at least 4 weeks and seek their doctor's approval prior to getting extensions.</li>
+            <li>had an eyelift surgery must wait 4 to 6 months after the operation and also gain their doctor's approval.</li>
             <li>are on Thyroid Medication you may find keeping the lashes beyond 2 weeks a challenge.</li>
             <li>has a medical condition related to their eyes, sight or eye area should really consult their doctor first.</li>
           </ul>
@@ -117,6 +125,9 @@ const FAQ = () => {
           Although many adhesives are developed to be safe for use the skin, eyelash extensions are never applied to the skin, therefore, allergic reactions due to contact with our adhesives are rare.  Individuals with allergies to other cosmetics or fragrances may experience some sensitivity to ingredients in some of the other materials used to apply eyelash extensions such as lint-free undereye gel patch. If necessary, a medical tape can be applied under the eyes during the procedure instead.
         </p>
       </AnimatedBox>
+      <PBox style={{ textAlign: 'center' }} py={10} px={[6, 6, 8, 10]}>
+        <ContactUs color={colour} />
+      </PBox>
     </Layout>
   )
 }

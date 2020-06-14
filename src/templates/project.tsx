@@ -1,13 +1,13 @@
-/* eslint-disable prettier/prettier */
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+// import Img from 'gatsby-image'
 import { transparentize, readableColor } from 'polished'
 import styled from 'styled-components'
 import { config, useSpring, animated } from 'react-spring'
 import Layout from '../components/layout'
 import { Box, AnimatedBox, Button } from '../elements'
 import SEO from '../components/SEO'
+import Gallery from '../components/gallery'
 
 const PBox = styled(AnimatedBox)`
   max-width: 1400px;
@@ -69,7 +69,9 @@ type PageProps = {
     }
     images: {
       nodes: {
+        id: string
         name: string
+        publicURL: string
         childImageSharp: {
           fluid: {
             aspectRatio: number
@@ -123,16 +125,27 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
       </PBox>
       <Content bg={project.color} py={10}>
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
-          {images.nodes.map((image) => (
+          <Gallery images={images.nodes.map(image => ({
+                          ...image.childImageSharp,
+                          id: image.id,
+                          name: image.name,
+                          publicURL: image.publicURL,
+                        }))}
+          />
+          {/* {images.nodes.map((image) => (
             <Img alt={image.name} key={image.childImageSharp.fluid.src} fluid={image.childImageSharp.fluid} />
-          ))}
+          ))} */}
         </PBox>
       </Content>
       <PBox style={{ textAlign: 'center' }} py={10} px={[6, 6, 8, 10]}>
         <h2>Want to make an appointment?</h2>
-        <PButton color={project.color} py={4} px={8}>
-          Click here
-        </PButton>
+        <p>
+          <a id="Setmore_button_iframe" style={{float:'none'}} href="https://my.setmore.com/bookingpage/1d502bb0-19ea-4500-a3be-0c254263c6fe">
+            <PButton color={project.color} py={4} px={8}>
+              Click here
+            </PButton>
+          </a>
+        </p>
       </PBox>
     </Layout>
   )
@@ -166,7 +179,9 @@ export const query = graphql`
     }
     images: allFile(filter: { relativePath: { regex: $images } }, sort: { fields: name, order: ASC }) {
       nodes {
+        id
         name
+        publicURL
         childImageSharp {
           fluid(quality: 95, maxWidth: 1200) {
             ...GatsbyImageSharpFluid_withWebp

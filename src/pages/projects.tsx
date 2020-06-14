@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
@@ -41,7 +40,7 @@ const Projects: React.FunctionComponent<PageProps> = ({ data: { projects } }) =>
 
   return (
     <Layout color="#000">
-      <SEO title="Services | NIXLASH" />
+      <SEO title="Services | NIXLASH" desc="Hi. I'm NIXLASH! You can visit my website for detailed eyelash services." />
       <Area style={pageAnimation}>
         {projects.nodes.map((project) => (
           <GridItem key={project.slug} to={project.slug} aria-label={`View project "${project.title}"`}>

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
@@ -40,8 +39,8 @@ const Trainings: React.FunctionComponent<PageProps> = ({ data: { trainings } }) 
   })
 
   return (
-    <Layout color="#000">
-      <SEO title="Services | NIXLASH" />
+    <Layout color="black">
+      <SEO title="Academy | NIXLASH" desc="Hi. I'm NIXLASH! You can visit my website for detailed eyelash trainnnings."/>
       <Area style={pageAnimation}>
         {trainings.nodes.map((training) => (
           <GridItem key={training.slug} to={training.slug} aria-label={`View training "${training.title}"`}>

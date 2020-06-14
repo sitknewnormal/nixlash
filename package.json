@@ -1,5 +1,5 @@
 {
-  "name": "NIXLASH",
+  "name": "nixlash",
   "private": true,
   "description": "Helping you find beautiful!",
   "version": "1.0.0",
@@ -27,6 +27,7 @@
     "test:ci": "npm-run-all -s test:compile server:ci"
   },
   "dependencies": {
+    "@hot-loader/react-dom": "^16.13.0",
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.19.26",
     "gatsby-image": "^2.2.42",
@@ -47,6 +48,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
+    "react-icons": "^3.10.0",
+    "react-image-lightbox": "^5.1.1",
     "react-spring": "^8.0.27",
     "styled-components": "^5.0.1",
     "styled-system": "^5.1.5",

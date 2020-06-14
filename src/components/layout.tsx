@@ -1,11 +1,14 @@
-/* eslint-disable prettier/prettier */
 import React from 'react'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { readableColor } from 'polished'
 import 'typeface-work-sans'
+import { FaMobileAlt } from 'react-icons/fa'
+import { FiMail } from 'react-icons/fi'
+import { TiLocationOutline } from 'react-icons/ti'
 import { Box, Flex } from '../elements'
 import theme from '../../config/theme'
+import { siteCellphone, siteEmail } from '../../config/index'
 import reset from '../styles/reset'
 import Logo from './logo'
 
@@ -253,11 +256,29 @@ const Layout = ({ children, color }: LayoutProps) => {
           <Main>{children}</Main>
           <Footer color={color}>
             <Box p={[6, 6, 8]} fontSize={0}>
-              <b>Location:</b> Toronto-Oakville, ON
-              <br></br>
-              <b>Phone:</b> (647) 534-9379
-              <br></br>
-              <b>Email:</b> contact@nixlash.com
+              <b>
+                <TiLocationOutline />
+              </b>{' '}
+              Toronto-Oakville, ON
+              <br />
+              <b>
+                <a href={`tel:${siteCellphone}`} title="Call for a quote">
+                  <FaMobileAlt />
+                </a>
+              </b>
+              {siteCellphone}
+              <br />
+              <b>
+                <a
+                  href={`mailto:${siteEmail}?subject=Service/Training quote`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Mail for a Training quote"
+                >
+                  <FiMail />
+                </a>
+              </b>{' '}
+              {siteEmail}
             </Box>
           </Footer>
         </Wrapper>

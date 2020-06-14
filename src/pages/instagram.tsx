@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
@@ -136,8 +135,8 @@ const Instagram: React.FunctionComponent<Props> = ({
   })
 
   return (
-    <Layout color="#3F4F67">
-      <SEO title="Instagram | NIXLASH" />
+    <Layout color="black">
+      <SEO title="Instagram | NIXLASH" desc="Hi. I'm NIXLASH! You can visit my website for detailed eyelash services and trainnnings."/>
       <Grid style={pageAnimation}>
         {trail.map((style, index) => {
           // Grab everything before the first hashtag (because I write my captions like that)
