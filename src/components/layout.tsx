@@ -160,11 +160,13 @@ const Nav = styled(Flex)<{ color: string }>`
     @media (max-width: ${(props) => props.theme.breakpoints[1]}) {
       font-size: ${(props) => props.theme.fontSizes[1]};
       margin-left: ${(props) => props.theme.space[3]};
+      font-weight: bold;
     }
 
     @media (max-width: ${(props) => props.theme.breakpoints[0]}) {
       font-size: ${(props) => props.theme.fontSizes[0]};
       margin-left: ${(props) => props.theme.space[2]};
+      font-weight: bold;
     }
   }
 `
@@ -233,7 +235,7 @@ const Layout = ({ children, color }: LayoutProps) => {
               justifyContent="space-between"
             >
               <Box width={['3rem', '4rem', '5rem', '6rem']}>
-                <Link to="/" aria-label="LekoArts, Back to Home">
+                <Link to="/" aria-label="NIXLASH, Back to Home">
                   <Logo />
                 </Link>
               </Box>

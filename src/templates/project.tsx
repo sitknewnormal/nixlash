@@ -125,7 +125,7 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
       <Content bg={project.color} py={10}>
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
           <Gallery images={images.nodes.map(image => ({
-                          ...image.childImageSharp,
+                          ...image.src.childImageSharp,
                           id: image.id,
                           name: image.name,
                           publicURL: image.publicURL,
